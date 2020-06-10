@@ -4,8 +4,18 @@ Returns: a List of integers
 '''
 def product_of_all_other_numbers(arr):
     # Your code here
-
-    pass
+    king_index = []
+    # x is index
+    for x, i in enumerate(arr):
+        #start from index -> + index + 1 (ignore current index and go to the next one)
+        lst = arr[:x] + arr[x + 1:]
+        answer = 1
+        for item in lst:
+            #for item in lst multiply by item
+            answer = answer * item
+            #append answer to the king
+        king_index.append(answer)
+    return king_index
 
 
 if __name__ == '__main__':
