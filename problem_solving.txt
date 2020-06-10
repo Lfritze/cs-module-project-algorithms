@@ -1,0 +1,27 @@
+Algorithms
+
+--UPER (Understand Plan Execute Reflect)
+
+--Understand
+understand inputs and outputs
+what is part of the problem and what is not
+
+--Plan
+pseudocode
+ensure edge cases
+Narrate it out loud
+
+Done when pseudocode ois complete and confident it's correct
+
+--Execution
+googling stack overflow
+check similar solutions
+You might have to go back to the understand or planning phase
+Focus on the basics
+Create a test (even a simple print statement)
+Document as you go, commit as you go, commit like a coherent "thought"
+
+You're done when your tests pass
+
+--Reflect
+make a checklist of what was hardest, easiest - what problem solving technique helped the most?
