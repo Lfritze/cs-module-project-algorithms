@@ -24,24 +24,42 @@ Window position                Max
 
  Can you implement a solution that calculates all of the maximum sliding window values in O(n) time?
 '''
-def sliding_window_max(nums, k):
-    # Your code here
-    king_array = []
-    # x is index
-    for x, i in enumerate(nums):
-        # array for nums index: index + k numbers in array
-        box = nums[x: x + k]
-        #if box array is less than k numbers in array
-        if len(box) < k:
-            pass
-        else:
-            # get the largest number from the box array
-            max_arr = max(box)
-            # append it to the king array
-            king_array.append(max_arr)
-            # return the king
-    return king_array
+# def sliding_window_max(nums, k):
+#     # Your code here
+#     king_array = []
 
+#     for index, i in enumerate(nums):
+#         # array for nums index: index + k numbers in array
+#         box = nums[index: index + k]
+#         #if box array is less than k numbers in array
+#         if len(box) < k:
+#             pass
+#         else:
+#             # get the largest number from the box array
+#             max_arr = max(box)
+#             # append it to the king array
+#             king_array.append(max_arr)
+#     # return the king
+#     return king_array
+
+
+def sliding_window_max(nums, k):
+    # max num = [0] multiplied times the length of nums - k + 1
+    max_number = [0] * (len(nums) - k + 1)
+    # set max num at zero index equal to the maximum number from the beginning to k (the amount of items) 
+    max_number[0] = max(nums[:k])
+
+    # in range from 1 ... length nums - k + 1
+    for i in range(1, len(nums) - k + 1):
+        # if nums [i - 1] matches max num[i-1]
+        if nums[i - 1] == max_number[i - 1]:
+            # then max num[i] is equal to the... max method...max(nums[from i by i add k])
+            max_number[i] = max(nums[i:i + k])
+        else:
+            # otherwise max num[i] is equal to...max method...max(max_num[i then iterate down 1]) nums[i + k iterate down 1]
+            max_number[i] = max(max_number[i - 1], nums[i + k - 1])
+
+    return max_number
 
 if __name__ == '__main__':
     # Use the main function here to test out your implementation 
